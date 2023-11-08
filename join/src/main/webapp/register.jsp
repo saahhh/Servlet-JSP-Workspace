@@ -1,28 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>È¸¿ø°¡ÀÔÃ¢</title>
+<title>íšŒì›ê°€ìž…ì°½</title>
 <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<h3>È¸¿ø°¡ÀÔ</h3>
+<h3>íšŒì›ê°€ìž…</h3>
 <form action="RegisterServlet" method="post">
-	<label for="mno">È¸¿ø¹øÈ£ : </label>
+	<label for="mno">íšŒì›ë²ˆí˜¸ : </label>
 	<input type="text" id="mno" name="mno" required><br>
 	
-	<label for="mname">ÀÌ¸§ : </label>
+	<label for="mname">ì´ë¦„ : </label>
 	<input type="text" id="mname" name="mname" required><br>
 	
-	<label for="memail">ÀÌ¸ÞÀÏ : </label>
+	<label for="memail">ì´ë©”ì¼ : </label>
 	<input type="email" id="memail" name="memail" required><br>
 	
-	<label for="mbirth">»ý³â¿ùÀÏ : </label>
+	<label for="mbirth">ìƒë…„ì›”ì¼ : </label>
 	<input type="date" id="mbirth" name="mbirth" required><br>
 	
-	<input type="submit" value="°¡ÀÔ">
+	<input type="submit" value="ê°€ìž…">
 
 </form>
 
