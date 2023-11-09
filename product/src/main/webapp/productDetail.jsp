@@ -16,6 +16,7 @@
 	//String = id 값 가지고 오겠다.
 	String productIdValue = request.getParameter("productId");
 	int productId = Integer.parseInt(productIdValue);
+	
 	//DAO 작업
 	ProductDAO productDAO = new ProductDAO();
 	Product product = productDAO.getProductId(productId);
@@ -23,8 +24,9 @@
 %>
 <p>제품 ID : <%= product.getProductId() %>
 <p>제품명 : <%= product.getProductName() %>
-<P>카테고리 : <%=product.getCategory() %>
-<p>가격 : <%=product.getPrice() %>
-<p>재고수량 : <%=product.getstockQuantity() %>
+<p>카테고리 : <%= product.getCategory() %>
+<p>가격 : <%= product.getPrice() %>
+<p>재고수량 : <%= product.getstockQuantity() %>
+
 </body>
 </html>

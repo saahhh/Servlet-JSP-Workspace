@@ -79,5 +79,8 @@ public class ProductDAO {
 		}
 		return product;
 	}
-
+	private int getProductId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
