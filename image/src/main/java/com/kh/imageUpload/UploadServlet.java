@@ -1,6 +1,7 @@
 package com.kh.imageUpload;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -59,12 +60,13 @@ public class UploadServlet extends HttpServlet {
 		
 		try {
 			Connection conn = DriverManager.getConnection(jdbcUrl, jdbcUser, jdbcPw);
-			String sql = "INSERT INTO board (board_id, title, content, image, created_at, author)" + "VALUES (board_sequence.nextval, ?, ?, ?, ?, ?)"; //board id에 시퀀스이름.nextval=따로 지정하지 않아도 자동으로 번호가 부여됨
+			String sql = "INSERT INTO Board (board_id, title, content,image, created_at, author)"
+					+ "VALUES (board_sequence.nextval,?,?,?,?,?)"; //board id에 시퀀스이름.nextval=따로 지정하지 않아도 자동으로 번호가 부여됨
 			PreparedStatement ps = conn.prepareStatement(sql);
 			//ps.setString(1, board_id); //시퀀스로 자동 번호 부여
 			ps.setString(1, title);
 			ps.setString(2, content);
-			ps.setBinaryStream(3, imagePart.getInputStream(), (int) imagePart.getSize()); //getSize는 기본적으로 long이기 때문에 (int)를 적어준다.
+			ps.setBinaryStream(3, imagePart.getInputStream(),(int) imagePart.getSize()); //getSize는 기본적으로 long이기 때문에 (int)를 적어준다.
 			ps.setTimestamp(4, new Timestamp(new Date().getTime())); //date -> util, timestamp -> sql import
 			ps.setString(5, "author name");
 			
