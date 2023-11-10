@@ -56,7 +56,7 @@ public class ProductDAO {
 		//select해서 한 개만 볼 수 있는 쿼리 작성하고 new product 이용해서 값 가져오기
 		try {
 			Connection connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-			String sql = "SELECT * FROM products WHERE = product_id = ?";
+			String sql = "SELECT * FROM products WHERE product_id = ?";
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, ProductId);
 			
