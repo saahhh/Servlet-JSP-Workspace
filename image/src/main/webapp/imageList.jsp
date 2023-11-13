@@ -12,4 +12,4 @@
 <p>이미지 내용 불러오기</p>
 <img alt="" src="ImageServlet?image_id=${image.boardId}">
 </body>
-</html>
+</html> 
