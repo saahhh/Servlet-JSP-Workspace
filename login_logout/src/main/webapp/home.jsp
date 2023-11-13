@@ -5,7 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>홈페이지</title>
-<script>
+<script> 
 	function displayLoginFail(){
 		alert("로그인에 실패하였습니다."); 
 	}
