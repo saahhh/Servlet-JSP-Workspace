@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import paginationDAO.Products.Product;
+
 
 public class ProductsDAO {
 

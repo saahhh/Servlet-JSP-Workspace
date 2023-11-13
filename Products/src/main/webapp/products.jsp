@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page import="java.util.List" %>
-<%@ page import="paginationDAO.ProductsDAO" %>
 <%@ page import="paginationDAO.*" %>
  
 <!DOCTYPE html>
@@ -27,13 +26,15 @@
 		<th>카테고리 : </th>
 	</tr>
 	<%
-		for(Product p : pl){
+		for(Products p : pl){
 	%>
 	<tr>
 		<td><%= p.getProductId() %></td>
 		<td><%= p.getProductName() %></td>
+		<%} %>
 	</tr>
 	</table>
+	
 	<%
 		//1. 페이지네이션 링크를 생성해줄 것, 링크는 page 값에 따라서 다르게 보일 것이다.
 		int totalProducts = pDAO.getTotalProducts(); //전체 제품의 숫자를 가져온 것
@@ -46,5 +47,6 @@
 	<%
 		}
 	%>
+
 </body>
 </html>
