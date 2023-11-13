@@ -28,6 +28,7 @@ public class ProductsDAO {
 			Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 			
 			 String sql = "SELECT * FROM (SELECT p.*, ROWNUM AS rnum FROM (SELECT * FROM products ORDER BY product_id) p WHERE ROWNUM <= ?) WHERE rnum >= ?";
+			 //rownum 랭킹이기 때문에 (SELECT * FROM products ORDER BY product_id) : 시작값
 			/*
 			String sql ="SELECT * FROM products ORDER BY product_id OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
 			
@@ -42,8 +43,8 @@ public class ProductsDAO {
 			 */
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setInt(1, start);
-			ps.setInt(2, end);
+			ps.setInt(1, end);
+			ps.setInt(2, start);
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -51,6 +52,7 @@ public class ProductsDAO {
 				Products products = new Products();
 				products.setProductId(rs.getInt("product_id"));
 				products.setProductName(rs.getString("product_name"));
+				products.setCategory(rs.getString("category"));
 				productList.add(products);
 				
 			}
