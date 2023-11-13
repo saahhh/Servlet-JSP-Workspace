@@ -12,32 +12,35 @@
 <body>
 	<%
 		//int pageNumber = (request.getParameter("page") !=null ) ? Integer.parseInt(s, beginIndex, endIndex, radix)
-		int pageNumber = (request.getParameter("page") !=null ) ? Integer.parseInt(request.getParameter("page")) : 1;
+		int pageNumber = (request.getParameter("page") != null) ? Integer.parseInt(request.getParameter("page")) : 1;
 		int pageSize = 2;
 		
-		ProductsDAO pDAO = new ProductsDAO();
-		List<Products> pl = pDAO.getAllProducts(pageNumber, pageSize);
+		ProductsDAO productsDAO = new ProductsDAO();
+		List<Products> productList = productsDAO.getAllProducts(pageNumber, pageSize);
 		
 	%>
 	<table border="1">
 	<tr>
-		<th>제품 명 : </th>
-		<th>제품 이름 : </th>
-		<th>카테고리 : </th>
+		<th>제품 번호</th>
+		<th>제품 이름</th>
+		<th>카테고리</th>
 	</tr>
 	<%
-		for(Products p : pl){
+		for(Products p : productList){
 	%>
 	<tr>
 		<td><%= p.getProductId() %></td>
 		<td><%= p.getProductName() %></td>
-		<%} %>
+		<td><%= p.getCategory() %></td>
+		<%
+		}
+		%>
 	</tr>
 	</table>
 	
 	<%
 		//1. 페이지네이션 링크를 생성해줄 것, 링크는 page 값에 따라서 다르게 보일 것이다.
-		int totalProducts = pDAO.getTotalProducts(); //전체 제품의 숫자를 가져온 것
+		int totalProducts = productsDAO.getTotalProducts(); //전체 제품의 숫자를 가져온 것
 		int totalPages = (int) Math.ceil((double)totalProducts/pageSize);
 		
 		for(int i = 1; i <= totalPages; i++){

@@ -27,7 +27,7 @@ public class ProductsDAO {
 			Class.forName("oracle.jdbc.OracleDriver");
 			Connection conn = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 			
-			String sql = "SELECT * FROM (SELECT p.*, ROWNUM AS rnum FROM products ORDER BY product_id) p WHERE rownum <= ? ) WHERE rnum >= ?";
+			 String sql = "SELECT * FROM (SELECT p.*, ROWNUM AS rnum FROM (SELECT * FROM products ORDER BY product_id) p WHERE ROWNUM <= ?) WHERE rnum >= ?";
 			/*
 			String sql ="SELECT * FROM products ORDER BY product_id OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
 			
