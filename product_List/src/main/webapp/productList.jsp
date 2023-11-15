@@ -32,7 +32,7 @@
 		
 		%>		
 		<tr>
-		<td> <a href="productDetail.jsp?productId=<%= p.getProductId()%>">
+		<td> <a href="ProductDetailPage.jsp?productId=<%= p.getProductId()%>">
 				<%=p.getProductId() %>
 			</a>
 		 </td>
